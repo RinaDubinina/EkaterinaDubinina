@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="MultiplyDivideTestSuite">
+
+    <test name="CalculatorDivideTest">
+        <classes>
+            <class name="hw1.CalculatorDivideTest"></class>
+                </classes>
+    </test>
+
+    <test name="CalculatorMultiplyTest">
+        <classes>
+            <class name="hw1.CalculatorMultiplyTest"></class>
+        </classes>
+    </test>
+
+</suite>
