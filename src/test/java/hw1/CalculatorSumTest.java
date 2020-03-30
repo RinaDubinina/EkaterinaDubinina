@@ -8,13 +8,7 @@ import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-public class CalculatorSumTest {
-    private Calculator calculator;
-
-    @BeforeMethod
-    public void setUp() {
-        calculator = new Calculator();
-    }
+public class CalculatorSumTest extends CalculatorBasis {
 
     @DataProvider
     public Object[][] sumTwoLongNumber() {
@@ -45,10 +39,4 @@ public class CalculatorSumTest {
         double actual = calculator.sum(a, b);
         assertEquals(actual, expected);
     }
-
-    @AfterMethod
-    public void tearDown() {
-        calculator = null;
-    }
-
 }

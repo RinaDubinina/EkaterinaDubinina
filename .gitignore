@@ -1,2 +1,6 @@
-# Project exclude paths
-/target/
+# Default ignored files
+/workspace.xml
+/target
+/*.iml
+/.idea/
+/*.jar
