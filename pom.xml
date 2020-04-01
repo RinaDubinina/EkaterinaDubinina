@@ -7,6 +7,94 @@
     <groupId>com.epam</groupId>
     <artifactId>EkaterinaDubinina</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
+    <properties>
+        <java.sourse.version>1.8</java.sourse.version>
+        <java.target.version>1.8</java.target.version>
+
+        <calculator.version>1.0</calculator.version>
+        <testng.version>7.1.0</testng.version>
+        <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+        <maven-compiler-plagin.version>3.8.1</maven-compiler-plagin.version>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>allTest</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw1/AllTestSuite.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>sumSubtractTest</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw1/SumSubtractTestSuite.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>multiplyDevideTest</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw1/MultiplyDevideTestSuite.xml</suite.xml>
+            </properties>
+        </profile>
+
+    </profiles>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.epam.tat.module4</groupId>
+            <artifactId>calculator-1.0</artifactId>
+            <version>${calculator.version}</version>
+            <systemPath>${project.basedir}/src/test/resources/calculator-1.0.jar</systemPath>
+            <scope>system</scope>
+        </dependency>
+    </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plagin.version}</version>
+                <configuration>
+                    <source>${java.sourse.version}</source>
+                    <target>${java.target.version}</target>
+                </configuration>
+
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
+                <configuration>
+                    <suiteXmlFiles>
+                        <xmlFile>${suite.xml}</xmlFile>
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
