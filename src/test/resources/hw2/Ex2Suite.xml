@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="LoginTestSuite">
+
+    <test name="LoginTest">
+        <classes>
+            <class name="hw2.ex2.LoginSeleniumTest"></class>
+        </classes>
+    </test>
+
+</suite>
