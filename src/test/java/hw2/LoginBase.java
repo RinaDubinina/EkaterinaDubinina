@@ -6,15 +6,21 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 
 public class LoginBase {
-    protected WebDriver driver;
-    protected WebDriverWait wait;
-    protected final static String URL = "https://jdi-testing.github.io/jdi-light/index.html";
+    private WebDriver driver;
+    private WebDriverWait wait;
+    private final static String URL = "https://jdi-testing.github.io/jdi-light/index.html";
+
+    public WebDriver getDriver() {
+        return driver;
+    }
+
+    public WebDriverWait getWait() {
+        return wait;
+    }
 
     @BeforeMethod
     public void setUp() {
