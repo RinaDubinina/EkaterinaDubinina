@@ -4,19 +4,16 @@ import hw3.composite.*;
 import org.openqa.selenium.WebDriver;
 
 
+
 public class DifferentElementsPage extends AbstractPage {
     private LogField logField;
-    private CheckboxRow checkboxRow;
-    private RadioRow radioRow;
-    private ColorsDropdownMenu colorsDropdownMenu;
+    private MainContent mainContent;
 
     public DifferentElementsPage(WebDriver driver) {
         super(driver);
         this.driver = driver;
         this.logField = new LogField(driver);
-        this.checkboxRow = new CheckboxRow(driver);
-        this.radioRow = new RadioRow(driver);
-        this.colorsDropdownMenu = new ColorsDropdownMenu(driver);
+        this.mainContent = new MainContent(driver);
     }
 
     public String getBrowserTitle() {
@@ -24,31 +21,26 @@ public class DifferentElementsPage extends AbstractPage {
     }
 
     public void setCheckBox(String checkboxName) {
-        checkboxRow.setCheckBox(checkboxName);
+        mainContent.setMainContent(checkboxName, mainContent.getCheckBoxElements());
     }
 
     public void setRadio(String radioName) {
-        radioRow.setRadio(radioName);
+        mainContent.setMainContent(radioName, mainContent.getRadioButtonElements());
     }
 
     public void setColorsDropdownMenu(String colorsDropdownValue) {
-        colorsDropdownMenu.setColorDropDown(colorsDropdownValue);
+        mainContent.setColorDropDown(colorsDropdownValue);
     }
 
-
-    public String isWaterCheckboxLogDisplayed() {
-        return logField.isWaterCheckboxDisplayed();
-    }
-    public String isWindCheckboxLogDisplayed() {
-        return logField.isWindCheckboxDisplayed();
+    public boolean isCheckboxLogDisplayed(String checkboxName) {
+        return logField.isLogElementDisplayed(checkboxName);
     }
 
-    public String isSelenRadioLogDisplayed()
-    {
-        return logField.isSelenRadioDisplayed();
+    public boolean isRadioLogDisplayed(String radioName) {
+        return logField.isLogElementDisplayed(radioName);
     }
 
-    public String isYellowColorLogDisplayed() {
-        return logField.isYellowColorDisplayed();
+    public boolean isColorLogDisplayed(String colorValue) {
+        return logField.isLogElementDisplayed(colorValue);
     }
 }

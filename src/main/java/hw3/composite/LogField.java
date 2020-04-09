@@ -4,36 +4,25 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 
 public class LogField extends AbstractPageComposite {
-
-    @FindBy(xpath = "//li[contains(text(),'Water')]")
-    private WebElement waterLogs;
-    @FindBy(xpath = "//li[contains(text(),'Wind')]")
-    private WebElement windLogs;
-    @FindBy(xpath = "//li[contains(text(),'Selen')]")
-    private WebElement selenLogs;
-    @FindBy(xpath = "//li[contains(text(),'Yellow')]")
-    private WebElement yellowLogs;
+    @FindBy(css = ".logs li ")
+    private List<WebElement> logs;
 
     public LogField(WebDriver driver) {
         super(driver);
     }
 
-    public String isWaterCheckboxDisplayed() {
-        return waterLogs.getText().toString().substring(9);
-    }
-
-    public String isWindCheckboxDisplayed() {
-        return windLogs.getText().toString().substring(9);
-    }
-
-    public String isSelenRadioDisplayed() {
-        return selenLogs.getText().toString().substring(9);
-    }
-
-    public String isYellowColorDisplayed() {
-        return yellowLogs.getText().toString().substring(9);
+    public boolean isLogElementDisplayed(String elementName){
+        boolean isDisplayed = false;
+        for (WebElement log:logs){
+            if (log.getText().contains(elementName + ": condition changed to") || log.getText().contains("value changed to " + elementName)) {
+                isDisplayed = true;
+            }
+        }
+        return isDisplayed;
     }
 }
 

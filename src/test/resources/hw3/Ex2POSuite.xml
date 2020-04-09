@@ -3,7 +3,7 @@
 
     <test name="LoginPOTest">
         <classes>
-            <class name="hw3.ex2.LoginPOTest"></class>
+            <class name="hw3.utill.LoginPOTest"></class>
         </classes>
     </test>
 

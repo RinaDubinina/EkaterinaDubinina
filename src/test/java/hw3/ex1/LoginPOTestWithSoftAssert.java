@@ -3,6 +3,7 @@ package hw3.ex1;
 
 import hw3.LoginBasePO;
 import hw3.pages.IndexPage;
+import hw3.utill.PropertyReader;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -23,7 +24,7 @@ public class LoginPOTestWithSoftAssert extends LoginBasePO {
         softAssert.assertEquals(indexPage.getBrowserTitle(), "Home Page", "Browser title has incorrect name");
 
         //3. Perform login
-        indexPage.login("Roman", "Jdi1234");
+        indexPage.login(PropertyReader.read("user"), PropertyReader.read("password"));
 
         //4. Assert Username is loggined
         softAssert.assertTrue(indexPage.getUserName().equals("ROMAN IOVLEV"), "Name is not equals to expected result");

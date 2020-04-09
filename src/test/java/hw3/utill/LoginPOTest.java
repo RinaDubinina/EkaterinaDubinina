@@ -1,6 +1,6 @@
-package hw3.ex2;
+package hw3.utill;
 
-import hw2.LoginBase;
+import hw3.LoginBasePO;
 import hw3.pages.DifferentElementsPage;
 import hw3.pages.IndexPage;
 import org.testng.annotations.Test;
@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-public class LoginPOTest extends LoginBase {
+public class LoginPOTest extends LoginBasePO {
 
     @Test
     public void loginTest() {
@@ -21,7 +21,7 @@ public class LoginPOTest extends LoginBase {
         assertEquals(indexPage.getBrowserTitle(), "Home Page", "Browser title has incorrect name");
 
         //3. Perform login
-        indexPage.login("Roman", "Jdi1234");
+        indexPage.login(PropertyReader.read("user"),PropertyReader.read("password"));
 
         //4. Assert Username is loggined
         assertTrue(indexPage.getUserName().equals("ROMAN IOVLEV"), "Name is not equals to expected result");
@@ -45,19 +45,14 @@ public class LoginPOTest extends LoginBase {
         //•	for each checkbox there is an individual log row and value is corresponded to the status of checkbox
         //•	for radio button there is a log row and value is corresponded to the status of radio button
         //•	for dropdown there is a log row and value is corresponded to the selected value.
-        assertEquals(differentElementsPage.isWaterCheckboxLogDisplayed(),
-                "Water: condition changed to true",
+        assertTrue(differentElementsPage.isCheckboxLogDisplayed("Water"),
                 "checkbox name and its status are not corresponding to selected");
-        assertEquals(differentElementsPage.isWindCheckboxLogDisplayed(),
-                "Wind: condition changed to true",
+        assertTrue(differentElementsPage.isCheckboxLogDisplayed("Wind"),
                 "checkbox name and its status are not corresponding to selected");
-        assertEquals(differentElementsPage.isSelenRadioLogDisplayed(),
-                "metal: value changed to Selen",
+        assertTrue(differentElementsPage.isRadioLogDisplayed("Selen"),
                 "radio button name and it status is not corresponding to selected");
-        assertEquals(differentElementsPage.isYellowColorLogDisplayed(),
-                "Colors: value changed to Yellow",
+        assertTrue(differentElementsPage.isColorLogDisplayed("Yellow"),
                 "dropdown name and selected value is not corresponding to selected");
-
 
         //10. Close Browser
         //by tearDown() in LoginBase.class

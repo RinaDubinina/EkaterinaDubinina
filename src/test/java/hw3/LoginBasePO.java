@@ -1,13 +1,11 @@
 package hw3;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+
 
 public class LoginBasePO {
     private WebDriver driver;
@@ -23,12 +21,10 @@ public class LoginBasePO {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
     }
-
     @AfterMethod
     public void tearDown() {
         driver.quit();
     }
-
     public void openSite() {
         driver.get(URL);
         driver.manage().window().maximize();
