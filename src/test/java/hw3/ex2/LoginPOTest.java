@@ -1,8 +1,9 @@
-package hw3.utill;
+package hw3.ex2;
 
 import hw3.LoginBasePO;
 import hw3.pages.DifferentElementsPage;
 import hw3.pages.IndexPage;
+import hw3.utill.PropertyReader;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
