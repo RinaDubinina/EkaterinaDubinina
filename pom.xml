@@ -77,6 +77,25 @@
             </properties>
         </profile>
 
+        <profile>
+            <id>hw3_ex1_loginPOTestWithSA</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw3/Ex1POSuite.xml</suite.xml>
+            </properties>
+        </profile>
+        <profile>
+            <id>hw3_ex2_loginPOTest</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw3/Ex2POSuite.xml</suite.xml>
+            </properties>
+        </profile>
+
     </profiles>
 
 

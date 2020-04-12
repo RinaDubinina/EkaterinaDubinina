@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="LoginTestWithSoftAssertPOSuite">
+
+    <test name="LoginTestWithSoftAssertPO">
+        <classes>
+            <class name="hw3.ex1.LoginPOTestWithSoftAssert"></class>
+        </classes>
+    </test>
+
+</suite>
