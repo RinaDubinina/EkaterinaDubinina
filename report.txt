@@ -1,0 +1,20 @@
+Report 
+
+Layers have already implemented:;
+
+*Test implementation layer
+*Test data layer
+*Test run layer
+*Configuration layer
+*Utils layer
+
+Layers have already missed:
+*Test logic layer
+*Service layer
+*Report and logs layer
+
+How could be current solution improved:
+I can improve current solution by implementing missed layers.
+Report and logs layer could be realised by Allure for reports and some log library.
+Test logic layer could be realised by Cucumber.
+Service layer could be realised if test data was in some database.
