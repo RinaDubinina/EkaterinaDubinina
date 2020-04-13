@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="ExOneWithPOSuite">
+
+    <test name="ExOneWithPO">
+        <classes>
+            <class name="hw4.ex1.ExOneWithPOTest"></class>
+        </classes>
+    </test>
+
+</suite>
