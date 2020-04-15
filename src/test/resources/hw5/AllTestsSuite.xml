@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="LoginTestWithSoftAssertPOSuite">
+
+    <test name="LoginTestWithSoftAssertPO">
+        <classes>
+            <class name="hw5.ex1.FirstWithSATest"></class>
+            <class name="hw5.ex1.SecondTest"></class>
+            <class name="hw5.ex2.FirstFailedTest"></class>
+        </classes>
+    </test>
+
+</suite>
