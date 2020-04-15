@@ -1,7 +1,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="LoginTestWithSoftAssertPOSuite">
+<suite name="AllTestsSuite">
 
-    <test name="LoginTestWithSoftAssertPO">
+    <test name="AllTests">
         <classes>
             <class name="hw5.ex1.FirstWithSATest"></class>
             <class name="hw5.ex1.SecondTest"></class>

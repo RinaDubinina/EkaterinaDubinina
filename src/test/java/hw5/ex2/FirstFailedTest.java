@@ -16,13 +16,13 @@ import java.util.Arrays;
 @Listeners({AllureScreenshotListener.class})
 public class FirstFailedTest extends LoginBase {
 
-    private IndexPageSteps indexPageSteps = new IndexPageSteps(driver);
 
 
     @Feature("Testing home page failed functionality")
     @Story("Login on home page and assert web elements on page")
     @Test
     public void loginTestWithSA() {
+        IndexPageSteps indexPageSteps = new IndexPageSteps(driver);
 
         //1. Open test site by URL
         indexPageSteps.open(PropertyReader.read("url"));
