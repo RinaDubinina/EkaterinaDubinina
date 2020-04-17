@@ -1,7 +1,7 @@
-package hw3.pages;
+package hw5.pages;
 
-import hw3.composite.HeaderMenu;
-import hw3.composite.SideBarMenu;
+import hw5.composite.HeaderMenu;
+import hw5.composite.SideBarMenu;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;

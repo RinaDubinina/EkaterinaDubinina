@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="FirstFailedTestSuite">
+
+    <test name="FirstFailedTest">
+        <classes>
+            <class name="hw5.ex2.FirstFailedTest"></class>
+
+
+        </classes>
+    </test>
+
+</suite>

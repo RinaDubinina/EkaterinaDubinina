@@ -9,7 +9,7 @@ public class TestData {
     private List<String> metals;
     private List<String> vegetables;
 
-    public TestData(List<String> summary, List<String> elements, List<String> colors,
+    private TestData(List<String> summary, List<String> elements, List<String> colors,
                     List<String> metals, List<String> vegetables) {
 
         this.summary = summary;
