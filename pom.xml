@@ -104,6 +104,25 @@
             </properties>
         </profile>
         <profile>
+            <id>hw4_ex1_WithPOTest</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw4/Ex1POSuite.xml</suite.xml>
+            </properties>
+        </profile>
+        <profile>
+            <id>hw4_ex2_WithBuilderTest</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw4/Ex2BuilderSuite.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
             <id>hw5_ex1_AllureTest</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
