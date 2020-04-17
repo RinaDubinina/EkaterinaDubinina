@@ -121,7 +121,6 @@
                 <suite.xml>src/test/resources/hw4/Ex2BuilderSuite.xml</suite.xml>
             </properties>
         </profile>
-
         <profile>
             <id>hw5_ex1_AllureTest</id>
             <activation>
@@ -150,7 +149,6 @@
                 <suite.xml>src/test/resources/hw5/AllTestsSuite.xml</suite.xml>
             </properties>
         </profile>
-
     </profiles>
 
 
