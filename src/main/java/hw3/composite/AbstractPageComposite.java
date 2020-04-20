@@ -10,7 +10,7 @@ public abstract class AbstractPageComposite {
 
     protected AbstractPageComposite(WebDriver driver) {
         this.driver = driver;
-        //this.wait = new WebDriverWait(driver,7);
+        this.wait = new WebDriverWait(driver,7);
         PageFactory.initElements(driver,this);
     }
 }

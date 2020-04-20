@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="BDDSuite">
+
+    <test name="Cucumber test">
+        <classes>
+            <class name="hw6.RunCucumberTest"></class>
+        </classes>
+    </test>
+
+</suite>

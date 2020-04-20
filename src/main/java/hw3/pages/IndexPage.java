@@ -11,6 +11,7 @@ import java.util.List;
 public class IndexPage extends AbstractPage {
     private Benefits benefits;
     private FramePage framePage;
+
     public IndexPage(WebDriver driver) {
         super(driver);
         this.driver = driver;
@@ -45,6 +46,13 @@ public class IndexPage extends AbstractPage {
 
     public void getDifferentElementPage() {
         headerMenu.getDifferentElementPage();
+    }
+
+    public void clickServiceDropdownMenu() {
+        headerMenu.clickServiceDropdownMenu();
+    }
+    public void getUserTablePage(){
+        headerMenu.getUserTablePage();
     }
 
     public int getBenefitIconCount() {

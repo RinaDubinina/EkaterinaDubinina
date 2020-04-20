@@ -8,7 +8,7 @@ import java.util.List;
 
 
 public class LogField extends AbstractPageComposite {
-    @FindBy(css = ".logs li ")
+    @FindBy(css = ".logs li")
     private List<WebElement> logs;
 
     public LogField(WebDriver driver) {
@@ -24,6 +24,23 @@ public class LogField extends AbstractPageComposite {
         }
         return isDisplayed;
     }
+
+   /* public boolean isLogTextDisplayed(String logText){
+        boolean isDisplayed = false;
+        for (WebElement log:logs){
+            if (log.getText().contains(logText)) {
+                isDisplayed = true;
+            }
+        }
+        return isDisplayed;
+    }*/
+   public boolean isLogTextDisplayed(int index,String logText){
+       boolean isDisplayed = false;
+           if (logs.get(index-1).getText().contains(logText)) {
+               isDisplayed = true;
+           }
+       return isDisplayed;
+   }
 }
 
 
