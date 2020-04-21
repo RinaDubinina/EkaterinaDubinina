@@ -6,16 +6,18 @@ import hw3.pages.UserTablePage;
 import hw6.webDriverSingleton.WebDriverSingleton;
 import io.cucumber.java.en.When;
 
+import java.util.List;
+
 public class WhenSteps {
     private DifferentElementsPage differentElementsPage;
     private IndexPage indexPage;
     private UserTablePage userTablePage;
 
-    @When("I select checkboxes {string} and {string} on Different Elements Page")
-    public void iSelectCheckboxes(String firstCheckbox, String secondCheckbox) {
+    @When("I select checkboxes on Different Elements Page")
+    public void iSelectCheckboxes(List<String> checkboxes) {
         differentElementsPage = new DifferentElementsPage(WebDriverSingleton.INSTANCE.getDriver());
-        differentElementsPage.setCheckBox(firstCheckbox);
-        differentElementsPage.setCheckBox(secondCheckbox);
+        checkboxes = checkboxes.subList(1, checkboxes.size());
+        checkboxes.forEach(e -> differentElementsPage.setCheckBox(e));
     }
 
     @When("I select {string} radio on Different Elements Page")

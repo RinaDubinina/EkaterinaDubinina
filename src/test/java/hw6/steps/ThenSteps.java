@@ -18,13 +18,11 @@ public class ThenSteps {
     private DifferentElementsPage differentElementsPage;
     private UserTablePage userTablePage;
 
-    @Then("for each {string} and {string} checkboxes there is an individual log row and value is corresponded to the status of checkbox")
-    public void assertCheckboxLog(String firstCheckbox, String secondCheckbox) {
+    @Then("for each checkboxes there is an individual log row and value is corresponded to the status of checkbox")
+    public void assertCheckboxLog(List<String> checkboxes) {
         differentElementsPage = new DifferentElementsPage(WebDriverSingleton.INSTANCE.getDriver());
-        assertTrue(differentElementsPage.isCheckboxLogDisplayed(firstCheckbox),
-                "checkbox name and its status are not corresponding to selected");
-        assertTrue(differentElementsPage.isCheckboxLogDisplayed(secondCheckbox),
-                "checkbox name and its status are not corresponding to selected");
+        checkboxes = checkboxes.subList(1, checkboxes.size());
+        checkboxes.forEach(e -> assertTrue(differentElementsPage.isCheckboxLogDisplayed(e)));
     }
 
     @Then("for {string} radio button there is a log row and value is corresponded to the status of radio button")
@@ -88,7 +86,7 @@ public class ThenSteps {
     @Then("droplist should contain values in column Type for user {string}")
     public void droplistShouldContainValuesForUser(String name, List<String> dropdownValuesList) {
         String actualValues = userTablePage.getUserChecboxValues(name);
-        String expectedValues="";
+        String expectedValues = "";
         for (int i = 1; i < dropdownValuesList.size(); i++) {
             expectedValues += dropdownValuesList.get(i);
         }

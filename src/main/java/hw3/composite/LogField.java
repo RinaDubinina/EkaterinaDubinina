@@ -25,15 +25,6 @@ public class LogField extends AbstractPageComposite {
         return isDisplayed;
     }
 
-   /* public boolean isLogTextDisplayed(String logText){
-        boolean isDisplayed = false;
-        for (WebElement log:logs){
-            if (log.getText().contains(logText)) {
-                isDisplayed = true;
-            }
-        }
-        return isDisplayed;
-    }*/
    public boolean isLogTextDisplayed(int index,String logText){
        boolean isDisplayed = false;
            if (logs.get(index-1).getText().contains(logText)) {
