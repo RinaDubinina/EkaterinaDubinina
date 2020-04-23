@@ -26,7 +26,7 @@
         <maven-compiler-plagin.version>3.8.1</maven-compiler-plagin.version>
         <allure-maven-plugin.version>2.10.0</allure-maven-plugin.version>
         <aspectjweaver.version>1.8.10</aspectjweaver.version>
-
+        <cucumber.version>5.6.0</cucumber.version>
 
         <allure.version>2.13.2</allure.version>
         <aspectj.version>1.9.5</aspectj.version>
@@ -140,15 +140,27 @@
                 <suite.xml>src/test/resources/hw5/Ex2Suite.xml</suite.xml>
             </properties>
         </profile>
+
         <profile>
             <id>hw5_AllTests</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.xml>src/test/resources/hw5/AllTestsSuite.xml</suite.xml>
             </properties>
         </profile>
+
+        <profile>
+            <id>hw6_CucumberTests</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw6/CucumberSuite.xml</suite.xml>
+            </properties>
+        </profile>
+
     </profiles>
 
 
@@ -191,6 +203,20 @@
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>${common-io.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>

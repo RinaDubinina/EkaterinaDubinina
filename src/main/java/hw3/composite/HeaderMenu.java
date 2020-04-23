@@ -63,5 +63,16 @@ public class HeaderMenu extends AbstractPageComposite {
         wait.until(ExpectedConditions.elementToBeClickable(By.linkText("DIFFERENT ELEMENTS"))).click();
     }
 
+    public void clickServiceDropdownMenu() {
+
+        wait.until(ExpectedConditions.visibilityOf(serviceDropdownMenu)).click();
+        wait.until(ExpectedConditions.attributeToBe(serviceDropdownMenu, "class", "dropdown open"));
+    }
+
+    public void getUserTablePage() {
+        wait.until(ExpectedConditions.elementToBeClickable(By.linkText("USER TABLE"))).click();
+    }
+
+
 }
 
