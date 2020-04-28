@@ -1,5 +1,6 @@
 package hw_jdi.forms;
 
+import com.epam.jdi.light.common.JDIAction;
 import com.epam.jdi.light.elements.complex.Checklist;
 import com.epam.jdi.light.elements.complex.dropdown.Dropdown;
 import com.epam.jdi.light.elements.composite.Form;
@@ -11,7 +12,7 @@ import com.epam.jdi.light.ui.html.elements.complex.RadioButtons;
 import hw_jdi.entities.MetalsAndColors;
 
 
-public class MetalsAndColorsForm extends Form {
+public class MetalsAndColorsForm extends Form<MetalsAndColors> {
 
     public static final String VEGETABLES = "Vegetables";
 
@@ -45,7 +46,8 @@ public class MetalsAndColorsForm extends Form {
     @Css("#submit-button")
     private Button submit;
 
-    public void setWebElements(MetalsAndColors metalsAndColors) {
+    @Override
+    public void fill(MetalsAndColors metalsAndColors) {
         oddSum.select(String.valueOf(metalsAndColors.getOddSum()));
         evenSum.select(String.valueOf(metalsAndColors.getEvenSum()));
         for (String element : metalsAndColors.getElements()) {
@@ -58,16 +60,15 @@ public class MetalsAndColorsForm extends Form {
         for (String vegetable : metalsAndColors.getVegetables()) {
             vegetables.select(vegetable);
         }
-
     }
 
-    public void submitForm() {
-        submit.click();
+    @Override
+    public void pressButton(String nameButton) {
+        super.pressButton(nameButton);
     }
 
     public void selectDefaultVegetablesValue() {
         vegetables.select(VEGETABLES);
     }
-
 
 }

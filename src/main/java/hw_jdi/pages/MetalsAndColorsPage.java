@@ -13,12 +13,12 @@ public class MetalsAndColorsPage extends WebPage {
     @Css(".results")
     private UIElement results;
 
-    public void setWebElements(MetalsAndColors metalsAndColors) {
-        metalsAndColorsForm.setWebElements(metalsAndColors);
+    public void fill(MetalsAndColors metalsAndColors) {
+        metalsAndColorsForm.fill(metalsAndColors);
     }
 
     public void submitForm() {
-        metalsAndColorsForm.submitForm();
+        metalsAndColorsForm.pressButton("Submit");
     }
 
     public String getResults() {

@@ -38,5 +38,4 @@ public class MetalsAndColors {
         return (getOddSum() + getEvenSum());
     }
 
-
 }

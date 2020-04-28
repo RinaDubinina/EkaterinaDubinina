@@ -3,8 +3,6 @@ package hw_jdi;
 import hw_jdi.base.BaseTest;
 import hw_jdi.dataProviders.MetalsAndColorsDataProvider;
 import hw_jdi.entities.MetalsAndColors;
-import hw_jdi.entities.User;
-import hw_jdi.pages.MetalsAndColorsPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -19,9 +17,9 @@ public class JdiTest extends BaseTest {
         String username = JdiSite.jdiHomePage.getUsername();
         Assert.assertEquals(username, ROMAN.getFullName());
         JdiSite.openMetalsAndColorsPage();
-        JdiSite.metalsAndColorsPage.setWebElements(metalsAndColors);
+        JdiSite.metalsAndColorsPage.fill(metalsAndColors);
         JdiSite.metalsAndColorsPage.submitForm();
-        Assert.assertEquals(JdiSite.metalsAndColorsPage.getResults(),metalsAndColors.getExpectedResults().toString());
+        Assert.assertEquals(JdiSite.metalsAndColorsPage.getResults(), metalsAndColors.getExpectedResults().toString());
 
     }
 
