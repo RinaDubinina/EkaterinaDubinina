@@ -198,28 +198,36 @@ testCase.setPropertyValue("phrase","");</con:tearDownScript><con:properties><con
       </spel:CheckTextRequest>
    </soapenv:Body>
 </soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="d3674d6e-6b1b-48bf-b60b-3582abffa5fc"/><con:assertion type="Valid HTTP Status Codes" id="a72775ea-d46f-469b-910e-77b6d0aacf3d" name="Valid HTTP Status Codes"><con:configuration><codes>200
-</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="SetValues" id="35505ce4-1d40-4053-9c56-f19a8ea85481"><con:settings/><con:config><script>def words=Arrays.asList("cAt", "dOG","GoAT", "mOusE");
+</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="SetValues" id="35505ce4-1d40-4053-9c56-f19a8ea85481"><con:settings/><con:config><script>//def words=Arrays.asList("cAt", "dOG","GoAT", "mOusE");
+//def  words= testRunner.testCase.getPropertyValue("words");
+//def word= testRunner.testCase.getPropertyValue("word");
+//def count= testRunner.testCase.getPropertyValue("count");
+//
 def itr= Integer.parseInt(testRunner.testCase.getPropertyValue("itr"));
-if(itr&lt;words.size()){
-testRunner.testCase.setPropertyValue("word",words[itr]);
+def count= Integer.parseInt(testRunner.testCase.getPropertyValue("count"));
+if(itr&lt;=count){
+testRunner.testCase.setPropertyValue("word",testRunner.testCase.getPropertyValue("val"+itr.toString()));
 testRunner.gotoStepByName("CheckIgnorCaseText");
 log.info("test data: " + testRunner.testCase.getPropertyValue("word"));
 itr++;
 testRunner.testCase.setPropertyValue("itr",itr.toString());
 }
-//else{
-//itr=0
-//testRunner.testCase.setPropertyValue("itr",itr.toString());}
+
 </script></con:config></con:testStep><con:setupScript>log.info(testRunner.testCase.name);
 log.info("Initialization of test data");
-
 def words=Arrays.asList("cAt", "dOG","GoAT", "mOusE");
-def itr= Integer.parseInt(testRunner.testCase.getPropertyValue("itr"));
-
+def count=words.size();
+testRunner.testCase.setPropertyValue("itr", "1");
+//def itr= Integer.parseInt(testRunner.testCase.getPropertyValue("itr"));
+testRunner.testCase.setPropertyValue("count", count.toString());
+//testRunner.testCase.setPropertyValue("words", words.toString());
+for (int i=1; i&lt;=words.size(); i++){
+	testRunner.testCase.setPropertyValue("val"+i.toString(), words[i-1].toString());
+	}
 </con:setupScript><con:tearDownScript>log.info("Cleaning up");
 testCase.setPropertyValue("itr","0");
 testCase.setPropertyValue("word","");
-</con:tearDownScript><con:properties><con:property><con:name>itr</con:name><con:value>1</con:value></con:property><con:property><con:name>word</con:name><con:value>cAt</con:value></con:property></con:properties></con:testCase><con:testCase id="f0207f05-0104-4f7e-88cc-3d8eb651a7d6" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CheckIgnorDigitsTextsTest" searchProperties="true"><con:settings/><con:testStep type="groovy" name="SetValues" id="46cd921c-d294-4625-bdd2-0873ba2783ba"><con:settings/><con:config><script>def firstText="First1 second2";
+</con:tearDownScript><con:properties><con:property><con:name>itr</con:name><con:value>0</con:value></con:property><con:property><con:name>word</con:name><con:value/></con:property><con:property><con:name>count</con:name><con:value>4</con:value></con:property><con:property><con:name>words</con:name><con:value>[cAt, dOG, GoAT, mOusE]</con:value></con:property><con:property><con:name>val1</con:name><con:value>cAt</con:value></con:property><con:property><con:name>val2</con:name><con:value>dOG</con:value></con:property><con:property><con:name>val3</con:name><con:value>GoAT</con:value></con:property><con:property><con:name>val4</con:name><con:value>mOusE</con:value></con:property></con:properties></con:testCase><con:testCase id="f0207f05-0104-4f7e-88cc-3d8eb651a7d6" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CheckIgnorDigitsTextsTest" searchProperties="true"><con:settings/><con:testStep type="groovy" name="SetValues" id="46cd921c-d294-4625-bdd2-0873ba2783ba"><con:settings/><con:config><script>def firstText="First1 second2";
 def secondText="thi3rd fou4rt";
 def thirdText="5fifth 6sixth";
 
@@ -251,7 +259,7 @@ testRunner.testCase.setPropertyValue("thirdText",thirdText);</script></con:confi
       </spel:CheckTextRequest>
    </soapenv:Body>
 </soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="fba4832c-fa7b-4d47-869f-66f7cbac4be1"/><con:assertion type="Simple NotContains" id="d1cf1a34-ef49-4c04-8038-50d9754ba391" name="Not Contains"><con:configuration><token>error</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Valid HTTP Status Codes" id="f486a2d5-a611-49a7-89e0-43f5f9b4d90f" name="Valid HTTP Status Codes"><con:configuration><codes>200
-</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties><con:property><con:name>url</con:name><con:value>https://epam.com</con:value></con:property></con:properties></con:testCase><con:testCase id="2e11acb7-7bba-45ea-ae06-c202c7a18112" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Copy of CheckIgnorCaseTextTest" searchProperties="true"><con:settings/><con:testStep type="groovy" name="SetValues" id="a17312f3-f157-48ad-ab73-49b322ccca9e"><con:settings/><con:config><script>def words=Arrays.asList("cAt", "dOG","GoAT", "mOusE");
+</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties><con:property><con:name>url</con:name><con:value>https://epam.com</con:value></con:property></con:properties></con:testCase><con:testCase id="2e11acb7-7bba-45ea-ae06-c202c7a18112" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="CopyCopy of CheckIgnorCaseTextTest" searchProperties="true"><con:settings/><con:testStep type="groovy" name="SetValues" id="a17312f3-f157-48ad-ab73-49b322ccca9e"><con:settings/><con:config><script>def words=Arrays.asList("cAt", "dOG","GoAT", "mOusE");
  Integer itr= Integer.parseInt(testRunner.testCase.getPropertyValue("itr"));
 if(itr&lt;words.size()){
 testRunner.testCase.setPropertyValue("word",words[itr]);
@@ -272,7 +280,40 @@ testRunner.testCase.setPropertyValue("itr",itr.toString());
       </spel:CheckTextRequest>
    </soapenv:Body>
 </soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="d3674d6e-6b1b-48bf-b60b-3582abffa5fc"/><con:assertion type="Valid HTTP Status Codes" id="a72775ea-d46f-469b-910e-77b6d0aacf3d" name="Valid HTTP Status Codes"><con:configuration><codes>200
-</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties><con:property><con:name>itr</con:name><con:value>1</con:value></con:property><con:property><con:name>word</con:name><con:value>cAt</con:value></con:property><con:property><con:name>url</con:name><con:value>http://speller.yandex.net</con:value></con:property></con:properties></con:testCase><con:properties><con:property><con:name>en_lang</con:name><con:value>en</con:value></con:property></con:properties></con:testSuite><con:testSuite id="cac5e6a2-46b4-4723-8d9f-dde8ca6f3dfe" name="NegativeSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="e017ea1d-191e-4554-b613-668cb8fca780" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="InvalidTest" searchProperties="true"><con:settings/><con:testStep type="request" name="CheckInvalidText" id="6257c699-cf2a-48af-abb5-60bc3b8f8a30"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SpellServiceSoap</con:interface><con:operation>checkText</con:operation><con:request name="CheckInvalidText" id="7e877a1a-8b9b-418d-b564-81ec0d56a346"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://speller.yandex.net/services/spellservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:spel="http://speller.yandex.net/services/spellservice">
+</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties><con:property><con:name>itr</con:name><con:value>1</con:value></con:property><con:property><con:name>word</con:name><con:value>cAt</con:value></con:property><con:property><con:name>url</con:name><con:value>http://speller.yandex.net</con:value></con:property></con:properties></con:testCase><con:testCase id="bfcce9e9-abbd-48bd-b20b-68692ea24f11" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Copy of CheckIgnorCaseTextTest" searchProperties="true"><con:settings/><con:testStep type="request" name="CheckIgnorCaseText" id="3ba401f4-59ab-4631-a95d-e3b4e92e698f"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SpellServiceSoap</con:interface><con:operation>checkText</con:operation><con:request name="CheckIgnorCaseText" id="35ddeb9d-bf6d-4acd-9ba3-6b66a4e0ff14"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://speller.yandex.net/services/spellservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:spel="http://speller.yandex.net/services/spellservice">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <spel:CheckTextRequest lang="${#TestSuite#en_lang}" options="${#Project#op0}" format="">
+         <spel:text>${#TestCase#word}</spel:text>
+      </spel:CheckTextRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="d3674d6e-6b1b-48bf-b60b-3582abffa5fc"/><con:assertion type="Valid HTTP Status Codes" id="a72775ea-d46f-469b-910e-77b6d0aacf3d" name="Valid HTTP Status Codes"><con:configuration><codes>200
+</codes></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="groovy" name="SetValues" id="16635c28-7aca-4020-a659-99278125a980"><con:settings/><con:config><script>//def words=Arrays.asList("cAt", "dOG","GoAT", "mOusE");
+//def  words= testRunner.testCase.getPropertyValue("words");
+def word= testRunner.testCase.getPropertyValue("word");
+def count= testRunner.testCase.getPropertyValue("count");
+//
+def itr= Integer.parseInt(testRunner.testCase.getPropertyValue("itr"));
+if(itr&lt;count){
+testRunner.testCase.setPropertyValue("word",words[itr]);
+testRunner.gotoStepByName("CheckIgnorCaseText");
+log.info("test data: " + testRunner.testCase.getPropertyValue("word"));
+itr++;
+testRunner.testCase.setPropertyValue("itr",itr.toString());
+}
+
+</script></con:config></con:testStep><con:setupScript>log.info(testRunner.testCase.name);
+log.info("Initialization of test data");
+def words=Arrays.asList("cAt", "dOG","GoAT", "mOusE");
+
+def count=words.size();
+testRunner.testCase.setPropertyValue("count", count.toString());
+testRunner.testCase.setPropertyValue("words", words.toString());
+
+</con:setupScript><con:tearDownScript>log.info("Cleaning up");
+testCase.setPropertyValue("itr","0");
+testCase.setPropertyValue("word","");
+</con:tearDownScript><con:properties><con:property><con:name>itr</con:name><con:value>9</con:value></con:property><con:property><con:name>word</con:name><con:value xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/></con:property><con:property><con:name>count</con:name><con:value>4</con:value></con:property><con:property><con:name>words</con:name><con:value>[cAt, dOG, GoAT, mOusE]</con:value></con:property></con:properties></con:testCase><con:properties><con:property><con:name>en_lang</con:name><con:value>en</con:value></con:property></con:properties></con:testSuite><con:testSuite id="cac5e6a2-46b4-4723-8d9f-dde8ca6f3dfe" name="NegativeSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="e017ea1d-191e-4554-b613-668cb8fca780" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="InvalidTest" searchProperties="true"><con:settings/><con:testStep type="request" name="CheckInvalidText" id="6257c699-cf2a-48af-abb5-60bc3b8f8a30"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SpellServiceSoap</con:interface><con:operation>checkText</con:operation><con:request name="CheckInvalidText" id="7e877a1a-8b9b-418d-b564-81ec0d56a346"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://speller.yandex.net/services/spellservice</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:spel="http://speller.yandex.net/services/spellservice">
    <soapenv:Header/>
    <soapenv:Body>
       <spel:CheckTextRequest lang="${#Project#en_lang}" options="${#Project#op0}" format="">
