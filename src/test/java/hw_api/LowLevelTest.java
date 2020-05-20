@@ -17,7 +17,7 @@ import static org.hamcrest.Matchers.is;
 public class LowLevelTest extends BaseTest {
 
     @Test
-    public void checkText(){
+    public void checkText() {
         RestAssured
                 .given(REQUEST_SPECIFICATION)
                 .get(URI.CHECK_TEXT)
@@ -26,10 +26,10 @@ public class LowLevelTest extends BaseTest {
     }
 
     @Test
-    public void checkCorrectWord(){
+    public void checkCorrectWord() {
         RestAssured
                 .given(REQUEST_SPECIFICATION)
-                .param(TEXT.getValue(),"кошка")
+                .param(TEXT.getValue(), "кошка")
                 .param(LANGUAGE.getValue(), RUSSIAN.getValue())
                 .log().all()
                 .get(URI.CHECK_TEXT)
@@ -38,9 +38,8 @@ public class LowLevelTest extends BaseTest {
                 .body(is("[]"));
     }
 
-
     @Test
-    public void checkIncorrectWord(){
+    public void checkIncorrectWord() {
         RestAssured
                 .given(REQUEST_SPECIFICATION)
                 .param(TEXT.getValue(), "cAT")
@@ -50,15 +49,5 @@ public class LowLevelTest extends BaseTest {
                 .then()
                 .body("code[0]", is(ERROR_CAPITALIZATION.getValue()))
                 .body("s[0]", hasItem("cat"));
-
     }
-
-
-
-
-
-
-
-
-
 }

@@ -7,7 +7,6 @@ public enum Language {
     RUSSIAN("ru"),
     ENGLISH("en"),
     UKRAINS("uk");
-
     private String value;
 
     Language(String value) {

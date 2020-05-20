@@ -46,7 +46,6 @@ public class YandexSpellerCheckText {
         SpellerDto[] speller = new YandexSpellerService().getCheckText(spellerBuilder);
         new SpellerAssertions(speller)
                 .assertTextEmptyResponse();
-
     }
 
     @Test(dataProviderClass = SpellerDataProvider.class, dataProvider = "textWithFindRepeatWordOption")
@@ -62,7 +61,5 @@ public class YandexSpellerCheckText {
                 .assertErrorCode(ERROR_REPEAT_WORD.getValue())
                 .assertGivenWord(repeatWord);
     }
-
-
 }
 

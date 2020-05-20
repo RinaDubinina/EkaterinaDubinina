@@ -12,12 +12,12 @@ import java.util.List;
 @AllArgsConstructor
 @Accessors(chain = true)
 public class SpellerDto {
-private int code;
-private int pos;
+    private int code;
+    private int pos;
     private int col;
     private int len;
     private String word;
     private List<String> s;
-   }
+}
 
 

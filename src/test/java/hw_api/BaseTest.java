@@ -14,6 +14,7 @@ import java.util.Properties;
 public class BaseTest {
 
     protected RequestSpecification REQUEST_SPECIFICATION;
+
     @SneakyThrows
     private Properties getProperties() {
         Properties prop = new Properties();
@@ -21,19 +22,13 @@ public class BaseTest {
         prop.load(getClass().getClassLoader().getResourceAsStream(propFileName));
         return prop;
     }
+
     @BeforeMethod
-    public void setup(){
-        REQUEST_SPECIFICATION=new RequestSpecBuilder()
+    public void setup() {
+        REQUEST_SPECIFICATION = new RequestSpecBuilder()
                 .setBaseUri(PropertyReader.getProperties().getProperty("URL"))
                 .addFilter(new RequestLoggingFilter())
                 .addFilter(new ResponseLoggingFilter())
                 .build();
-
     }
-
-    /*@AfterMethod
-    public void teardown(){
-
-    }*/
-
 }

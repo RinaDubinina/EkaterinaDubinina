@@ -1,17 +1,19 @@
 package hw_api.utill;
 
-import io.restassured.specification.RequestSpecification;
 import lombok.SneakyThrows;
 
 import java.util.Properties;
 
 public class PropertyReader {
-    private RequestSpecification REQUEST_SPECIFICATION;
+    private static String propFileName = "test.properties";
+    private static Properties prop;
+
     @SneakyThrows
     public static Properties getProperties() {
-        Properties prop = new Properties();
-        String propFileName = "test.properties";
-        prop.load(PropertyReader.class.getClassLoader().getResourceAsStream(propFileName));
+        if (prop == null) {
+            prop = new Properties();
+            prop.load(PropertyReader.class.getClassLoader().getResourceAsStream(propFileName));
+        }
         return prop;
     }
 }

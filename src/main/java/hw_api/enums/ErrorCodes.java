@@ -8,7 +8,6 @@ public enum ErrorCodes {
     ERROR_REPEAT_WORD(2),
     ERROR_CAPITALIZATION(3),
     ERROR_TOO_MANY_ERRORS(4);
-
     private int value;
 
     ErrorCodes(int value) {

@@ -31,7 +31,7 @@
         <allure.version>2.13.2</allure.version>
         <aspectj.version>1.9.5</aspectj.version>
 
-        <domain>https://jdi-testing.github.io/jdi-light/</domain>
+        <domain>http://jdi-testing.github.io/jdi-light/</domain>
         <driver>chrome</driver>
         <jdi-version>RELEASE</jdi-version>
         <guava-version>22.0</guava-version>
@@ -234,11 +234,11 @@
             <version>${selenium.version}</version>
         </dependency>
 
-         <dependency>
+         <!--<dependency>
              <groupId>io.github.bonigarcia</groupId>
              <artifactId>webdrivermanager</artifactId>
              <version>${webdrivermanager.version}</version>
-         </dependency>
+         </dependency>-->
 
         <dependency>
             <groupId>io.qameta.allure</groupId>

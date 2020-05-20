@@ -8,11 +8,9 @@ public enum Options {
     IGNORE_URLS("4"),
     FIND_REPEATED_WORDS("8"),
     IGNORE_CASE("512");
-
     private String value;
 
     Options(String value) {
         this.value = value;
     }
-
 }
