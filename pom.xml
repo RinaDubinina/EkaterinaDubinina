@@ -10,8 +10,7 @@
     <packaging>jar</packaging>
 
     <properties>
-        <driver>chrome</driver>
-        <domain>http://jdi-testing.github.io/jdi-light/</domain>
+
         <java.sourse.version>1.8</java.sourse.version>
         <java.target.version>1.8</java.target.version>
 
@@ -32,12 +31,14 @@
         <allure.version>2.13.2</allure.version>
         <aspectj.version>1.9.5</aspectj.version>
 
-        <domain>https://jdi-testing.github.io/jdi-light/</domain>
+        <domain>http://jdi-testing.github.io/jdi-light/</domain>
         <driver>chrome</driver>
         <jdi-version>RELEASE</jdi-version>
         <guava-version>22.0</guava-version>
         <lombok-version>1.18.12</lombok-version>
         <gson-version>2.8.5</gson-version>
+        <rest-assured-version>4.2.0</rest-assured-version>
+        <assertj-version>3.15.0</assertj-version>
 
         <project.build.sourseEncoding>UTF-8</project.build.sourseEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -169,13 +170,42 @@
                 <suite.xml>src/test/resources/hw6/CucumberSuite.xml</suite.xml>
             </properties>
         </profile>
+
         <profile>
             <id>hw_jdi_JDITest</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw_jdi/JDISuite.xml</suite.xml>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>hw_api_CheckTextTest</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw_api/YandexSpellerCheckTextSuite.xml</suite.xml>
+            </properties>
+        </profile>
+        <profile>
+            <id>hw_api_CheckTextsTest</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.xml>src/test/resources/hw_api/YandexSpellerCheckTextsSuite.xml</suite.xml>
+            </properties>
+        </profile>
+        <profile>
+            <id>hw_api_AllTest</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.xml>src/test/resources/hw_jdi/JDISuite.xml</suite.xml>
+                <suite.xml>src/test/resources/hw_api/YandexSpellerAllTestsSuite.xml</suite.xml>
             </properties>
         </profile>
 
@@ -204,7 +234,7 @@
             <version>${selenium.version}</version>
         </dependency>
 
-        <!-- <dependency>
+         <!--<dependency>
              <groupId>io.github.bonigarcia</groupId>
              <artifactId>webdrivermanager</artifactId>
              <version>${webdrivermanager.version}</version>
@@ -260,6 +290,18 @@
             <artifactId>gson</artifactId>
             <version>${gson-version}</version>
             <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${rest-assured-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>${assertj-version}</version>
         </dependency>
 
     </dependencies>

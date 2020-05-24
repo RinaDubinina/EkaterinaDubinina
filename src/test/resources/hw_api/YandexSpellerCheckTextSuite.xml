@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="YandexSpellerCheckTextSuite">
+
+    <test name="checkTextTest">
+        <classes>
+            <class name="hw_api.functional_level.YandexSpellerCheckText"></class>
+        </classes>
+    </test>
+
+</suite>
