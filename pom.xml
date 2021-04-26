@@ -20,7 +20,7 @@
         <selenium.version>3.141.59</selenium.version>
         <webdrivermanager.version>3.8.1</webdrivermanager.version>
 
-        <common-io.version>2.6</common-io.version>
+        <common-io.version>2.7</common-io.version>
 
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
         <maven-compiler-plagin.version>3.8.1</maven-compiler-plagin.version>
